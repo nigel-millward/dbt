@@ -4,6 +4,13 @@
     )
 }}
 
+with customers as (
+    select * from {{ ref('stage_customers') }}
+),
+
+orders as (
+    select * from {{ ref('stage_orders')}}
+),
 
 customer_orders as (
 
@@ -19,7 +26,6 @@ customer_orders as (
     group by 1
 
 ),
-
 
 final as (
 
